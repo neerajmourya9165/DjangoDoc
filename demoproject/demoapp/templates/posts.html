@@ -1,0 +1,26 @@
+<h1>Posts</h1>
+<span>Hello,{{request.user}}</span>
+<span><a href="{% url 'logout' %}">Logout</a></span>
+
+
+
+<!-- <form action="/search" method="get">
+    <input type="text" name="search" id="search" placeholder="Search posts">
+    <input type="submit" value="Search Posts">
+</form> -->
+
+<table border="1">
+{% for x in myposts %}
+<tr>
+    <td>{{ x.id }}</td>
+    <td>{{ x.title }}</td>
+    <td>{{ x.body }}</td>
+    <td><a href="delete/{{x.id}}">Delete</a></td>
+    <td><a href="update/{{x.id}}">Update</a></td>
+</tr>
+{% endfor %}
+</table>
+
+<p>
+    <a href="add/">Add Posts</a>
+    </p>
